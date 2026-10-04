@@ -29,7 +29,7 @@ const useProducts = () => {
 };
 const useDetailProduct = (id) => {
   const products = useContext(ProductContext);
-  const detailProduct = products.find((item) => item.id === id);
+  const detailProduct = products.find((item) => item._id === id);
   return detailProduct
 };
 

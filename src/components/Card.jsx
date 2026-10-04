@@ -6,7 +6,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import styles from "./Card.module.css";
 import { useCart } from "../context/Cartcontext";
 function Card({ data }) {
-  const { title, price, image, id } = data;
+  const { title, price, image, _id } = data;
 
   const [state, dispatch] = useCart();
 
@@ -14,14 +14,14 @@ function Card({ data }) {
     dispatch({ type, payload: data });
   };
 
-  const quantity = productQuantity(state, id);
+  const quantity = productQuantity(state, _id);
   return (
     <div className={styles.card}>
       <img src={image} alt={title} />
       <h3>{shortenText(title)}</h3>
       <p>{price}</p>
       <div className={styles.actions}>
-        <Link to={`/products/${id}`}>
+        <Link to={`/products/${_id}`}>
           <TbListDetails />
         </Link>
         <div>

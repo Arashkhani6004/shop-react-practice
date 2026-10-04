@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "https://fakestoreapi.com" });
+const api = axios.create({ baseURL: "https://fakestoreapi.noksha.dev/api" });
 
 api.interceptors.response.use(
-  (response) => response.data,
+  (response) => response.data.data,
   (error) => Promise.reject(error)
 );
 

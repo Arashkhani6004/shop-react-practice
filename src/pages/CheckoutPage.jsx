@@ -21,7 +21,7 @@ function CheckoutPage() {
       <div className={styles.products}>
         {state.selectedItems.map((product) => (
           <BasketCard
-            key={product.id}
+            key={product._id}
             data={product}
             clickHandler={clickHandler}
           />

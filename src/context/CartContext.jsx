@@ -11,7 +11,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM":
-      if (!state.selectedItems.find((item) => item.id === action.payload.id)) {
+      if (!state.selectedItems.find((item) => item._id === action.payload._id)) {
         state.selectedItems.push({ ...action.payload, quantity: 1 });
       }
       return {
@@ -22,7 +22,7 @@ const reducer = (state, action) => {
 
     case "REMOVE_ITEM":
       const newSelectedItems = state.selectedItems.filter(
-        (item) => item.id !== action.payload.id
+        (item) => item._id !== action.payload._id
       );
       return {
         ...state,
@@ -32,7 +32,7 @@ const reducer = (state, action) => {
 
     case "INCREASE":
       const increaseIndex = state.selectedItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
       state.selectedItems[increaseIndex].quantity++;
       return {
@@ -42,7 +42,7 @@ const reducer = (state, action) => {
 
     case "DECREASE":
       const decreaseIndex = state.selectedItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
       state.selectedItems[decreaseIndex].quantity--;
       return {

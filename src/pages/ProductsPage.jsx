@@ -20,6 +20,7 @@ function ProductsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
+    console.log(products)
     setDisplayed(products);
     setQuery(getInitialQuery(searchParams));
   }, [products]);
@@ -39,7 +40,7 @@ function ProductsPage() {
         <div className={styles.products}>
           {!displayed.length && <Loader />}
           {displayed.map((p) => (
-            <Card key={p.id} data={p} />
+            <Card key={p._id} data={p} />
           ))}
         </div>
         <Sidebar setQuery={setQuery} query={query} />
